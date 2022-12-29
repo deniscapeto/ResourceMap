@@ -22,7 +22,7 @@ pipeline {
                 }
               }
 
-              echo "Agreed to DEPLOY to Staging: ${env.DEPLOY_STAGING['EU']}"
+              echo "Agreed to DEPLOY to Staging: ${env.DEPLOY_STAGING.EU}"
               echo '"Agreed to DEPLOY to Staging: ${env.DEPLOY_STAGING.US}"'
             }
           }
