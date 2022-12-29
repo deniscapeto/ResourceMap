@@ -20,10 +20,22 @@ pipeline {
                 } catch (err) {
                   env.DEPLOY_STAGING = false
                 }
+              
+                Map stagingEnvs =
+                    // Take the String value between
+                    // the [ and ] brackets.
+                    env.DEPLOY_STAGING[1..-2]
+                        // Split on , to get a List.
+                        .split(', ')
+                        // Each list item is transformed
+                        // to a Map entry with key/value.
+                        .collectEntries { entry ->
+                            def pair = entry.split('=')
+                            [(pair.first()): pair.last()]
+                        }
+              
               }
-              //echo "Agreed to DEPLOY to Staging: ${env.DEPLOY_STAGING[1..-2].split(', ').collectEntries { entry -> def pair = entry.split('=') [(pair.first()): pair.last()]}.EU}"
-              //echo "Agreed to DEPLOY to Staging: ${env.DEPLOY_STAGING[1..-2].split(', ').collectEntries { entry -> def pair = entry.split('=') [(pair.first()): pair.last()]}.US}"
-              //echo "Agreed to DEPLOY to Staging: ${env.DEPLOY_STAGING[1..-2].split(', ').collectEntries { entry -> def pair = entry.split('=') [(pair.first()): pair.last()]}.AP}"
+              //echo "Agreed to DEPLOY to Staging: ${stagingEnvs.EU}"
               
             }
           }
