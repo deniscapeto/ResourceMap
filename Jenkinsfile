@@ -6,7 +6,7 @@ pipeline {
         stage('Deploy Staging') {
           steps {
             echo 'Staging'
-            input(message: 'deploy to staging', ok: 'EU, US, AP')
+            input(message: 'deploy to staging', ok: 'EU, US, AP', submitterParameter: 'EU, US, AP')
           }
         }
 
@@ -20,7 +20,7 @@ pipeline {
       }
     }
 
-    stage('') {
+    stage('error') {
       agent {
         node {
           label 'backend'
