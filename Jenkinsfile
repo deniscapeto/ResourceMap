@@ -16,10 +16,10 @@ pipeline {
                       booleanParam(name: 'US', defaultValue: false)
                     ])
 
-                def stagingEnvs =
+//                 def stagingEnvs =
                     // Take the String value between
                     // the [ and ] brackets.
-                    env.DEPLOY_STAGING
+//                     env.DEPLOY_STAGING
                         // Split on , to get a List.
 //                         .split(', ')
 //                         // Each list item is transformed
