@@ -36,7 +36,6 @@ pipeline {
                 stage('Deploy Playground') {
                     steps {
                         input(message: 'Deploy to playground?', ok: 'EU, US, AP')
-                        waitUntil()
                     }
                 }
             }
