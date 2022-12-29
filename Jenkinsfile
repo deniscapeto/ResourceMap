@@ -27,7 +27,7 @@ pipeline {
                             } catch (err) {
                                 env.DEPLOY_STAGING = false
                             }
-//                             println "Agreed to DEPLOY to Staging: ${stagingEnvs.EU}"
+                            println "Agreed to DEPLOY to Staging: ${stagingEnvs.EU}"
                         }
                         // echo "Agreed to DEPLOY to Staging: ${stagingEnvs.EU}"
                     }
