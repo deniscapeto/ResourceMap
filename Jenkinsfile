@@ -16,30 +16,28 @@ pipeline {
                       booleanParam(name: 'US', defaultValue: false)
                     ])
                   
-//                 def stagingEnvs =
-                    // Take the String value between
-                    // the [ and ] brackets.
-//                     env.DEPLOY_STAGING
-                        // Split on , to get a List.
-//                         .split(', ')
-//                         // Each list item is transformed
-//                         // to a Map entry with key/value.
-//                         .collectEntries { entry ->
-//                             def pair = entry.split('=')
-//                             [(pair.first()): pair.last()]
-//                         }
+                def stagingEnvs =
+                    Take the String value between
+                    the [ and ] brackets.
+                    env.DEPLOY_STAGING
+                        Split on , to get a List.
+                        .split(', ')
+                        // Each list item is transformed
+                        // to a Map entry with key/value.
+                        .collectEntries { entry ->
+                            def pair = entry.split('=')
+                            [(pair.first()): pair.last()]
+                        }
                   
                   
                   }
-                                def browsers = ['chrome', 'firefox']
-                
                 } catch (err) {
                   env.DEPLOY_STAGING = false
                 }
 
 
               }
-//               echo "Agreed to DEPLOY to Staging: ${stagingEnvs}"
+              echo "Agreed to DEPLOY to Staging: ${stagingEnvs.EU}"
               
             }
           }
