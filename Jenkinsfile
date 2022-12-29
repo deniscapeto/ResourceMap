@@ -21,9 +21,9 @@ pipeline {
                   env.DEPLOY_STAGING = false
                 }
               }
-              echo "Agreed to DEPLOY to Staging: ${env.DEPLOY_STAGING[1..-2].split(', ').collectEntries { entry -> def pair = entry.split('=') [(pair.first()): pair.last()]}.EU}"
-              echo "Agreed to DEPLOY to Staging: ${env.DEPLOY_STAGING[1..-2].split(', ').collectEntries { entry -> def pair = entry.split('=') [(pair.first()): pair.last()]}.US}"
-              echo "Agreed to DEPLOY to Staging: ${env.DEPLOY_STAGING[1..-2].split(', ').collectEntries { entry -> def pair = entry.split('=') [(pair.first()): pair.last()]}.AP}"
+              //echo "Agreed to DEPLOY to Staging: ${env.DEPLOY_STAGING[1..-2].split(', ').collectEntries { entry -> def pair = entry.split('=') [(pair.first()): pair.last()]}.EU}"
+              //echo "Agreed to DEPLOY to Staging: ${env.DEPLOY_STAGING[1..-2].split(', ').collectEntries { entry -> def pair = entry.split('=') [(pair.first()): pair.last()]}.US}"
+              //echo "Agreed to DEPLOY to Staging: ${env.DEPLOY_STAGING[1..-2].split(', ').collectEntries { entry -> def pair = entry.split('=') [(pair.first()): pair.last()]}.AP}"
               
             }
           }
