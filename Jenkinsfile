@@ -21,13 +21,13 @@ pipeline {
                     // the [ and ] brackets.
                     env.DEPLOY_STAGING[1..-2]
                         // Split on , to get a List.
-                        .split(', ')
-                        // Each list item is transformed
-                        // to a Map entry with key/value.
-                        .collectEntries { entry ->
-                            def pair = entry.split('=')
-                            [(pair.first()): pair.last()]
-                        }
+//                         .split(', ')
+//                         // Each list item is transformed
+//                         // to a Map entry with key/value.
+//                         .collectEntries { entry ->
+//                             def pair = entry.split('=')
+//                             [(pair.first()): pair.last()]
+//                         }
                   
                   
                   }
