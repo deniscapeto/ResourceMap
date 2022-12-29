@@ -22,13 +22,11 @@ pipeline {
                 }
               }
 
+            script {
               Map stagingEnvs = env.DEPLOY_STAGING[1..-2]
-              .split(', ')
-              .collectEntries { entry ->
-              def pair = entry.split('=')
-                [(pair.first()): pair.last()]
-              }
-            
+                .split(', ')
+                .collectEntries { entry -> def pair = entry.split('=') [(pair.first()): pair.last()]}
+            }
               echo "Agreed to DEPLOY to Staging: ${stagingEnvs.EU}"
               echo "Agreed to DEPLOY to Staging: ${stagingEnvs.US}"
               echo "Agreed to DEPLOY to Staging: ${stagingEnvs.AP}"
