@@ -35,7 +35,8 @@ pipeline {
 
                 stage('Deploy Playground') {
                     steps {
-                        input(message: 'Deploy to playground?', ok: 'EU, US, AP')
+                        //input(message: 'Deploy to playground?', ok: 'EU, US, AP')
+                        echo 'Deploy to playground'
                     }
                 }
             }
