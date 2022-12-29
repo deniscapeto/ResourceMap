@@ -16,7 +16,7 @@ pipeline {
                       booleanParam(name: 'US', defaultValue: false)
                     ])
 
-                Map stagingEnvs =
+                def stagingEnvs =
                     // Take the String value between
                     // the [ and ] brackets.
                     env.DEPLOY_STAGING[1..-2]
