@@ -15,6 +15,7 @@ pipeline {
                       booleanParam(name: 'EU', defaultValue: false),
                       booleanParam(name: 'US', defaultValue: false)
                     ])
+                  def browsers = ['chrome', 'firefox']
 
 //                 def stagingEnvs =
                     // Take the String value between
