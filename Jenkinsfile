@@ -6,7 +6,22 @@ pipeline {
         stage('Deploy Staging') {
           steps {
             echo 'Staging'
-            input(message: 'deploy to staging', ok: 'EU, US, AP', submitterParameter: 'EU, US, AP')
+            script {
+                try {
+                    timeout(time: 60, unit: 'MINUTES') {
+                        env.DEPLOY_STAGING = input(
+                                message: 'Continue with Deploy to Staging EU?',
+                                parameters: [
+                                        booleanParam(name: 'deploy to EU staging', defaultValue: false),
+                                        booleanParam(name: 'deploy to US staging', defaultValue: false)
+                                ])
+
+                    }
+                } catch (err) {
+                    env.DEPLOY_STAGING = false
+                }
+            }
+            echo "Agreed to DEPLOY to Staging: ${env.DEPLOY_STAGING}"
           }
         }
 
