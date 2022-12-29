@@ -19,7 +19,7 @@ pipeline {
                                 }
 
                                 def stagingEnvs = env.DEPLOY_STAGING[1..-2]
-//                                 .split(', ')
+                                .split(', ')
 //                                 .collectEntries { entry ->
 //                                     def pair = entry.split('=')
 //                                     [(pair.first()): pair.last()]
@@ -42,12 +42,7 @@ pipeline {
             }
         }
 
-        stage('error') {
-            agent {
-                node {
-                    label 'backend'
-                }
-            }
+        stage('Final') {
             steps {
                 echo 'Fininshed'
             }
