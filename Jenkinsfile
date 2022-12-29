@@ -31,10 +31,12 @@ pipeline {
                   
                   
                   }
+                                def browsers = ['chrome', 'firefox']
+                
                 } catch (err) {
                   env.DEPLOY_STAGING = false
                 }
-                def browsers = ['chrome', 'firefox']
+
 
               }
 //               echo "Agreed to DEPLOY to Staging: ${stagingEnvs}"
