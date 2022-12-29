@@ -7,6 +7,7 @@ pipeline {
                     steps {
                         echo 'Staging'
                         script {
+                            Map stagingEnvs = null
                             try {
                                 timeout(time: 60, unit: 'MINUTES') {
                                     env.DEPLOY_STAGING = input(
@@ -18,7 +19,7 @@ pipeline {
                                     )
                                 }
 
-                                def stagingEnvs = env.DEPLOY_STAGING[1..-2]
+                                stagingEnvs = env.DEPLOY_STAGING[1..-2]
                                 .split(', ')
                                 .collectEntries { entry ->
                                     def pair = entry.split('=')
