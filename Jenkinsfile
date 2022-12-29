@@ -16,11 +16,6 @@ pipeline {
                       booleanParam(name: 'US', defaultValue: false)
                     ])
 
-                  }
-                } catch (err) {
-                  env.DEPLOY_STAGING = false
-                }
-              
                 Map stagingEnvs =
                     // Take the String value between
                     // the [ and ] brackets.
@@ -33,7 +28,13 @@ pipeline {
                             def pair = entry.split('=')
                             [(pair.first()): pair.last()]
                         }
-              
+                  
+                  
+                  }
+                } catch (err) {
+                  env.DEPLOY_STAGING = false
+                }
+
               }
               //echo "Agreed to DEPLOY to Staging: ${stagingEnvs.EU}"
               
