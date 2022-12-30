@@ -1,4 +1,7 @@
 /* groovylint-disable NestedBlockDepth */
+
+import org.jenkinsci.plugins.pipeline.modeldefinition.Utils
+
 pipeline {
     agent any
     stages {
@@ -15,7 +18,8 @@ pipeline {
                                             message: 'Continue with Deploy to Staging EU?',
                                             parameters: [
                                                 booleanParam(name: 'EU', defaultValue: false),
-                                                booleanParam(name: 'US', defaultValue: false)
+                                                booleanParam(name: 'US', defaultValue: false),
+                                                booleanParam(name: 'AP', defaultValue: false)
                                             ]
                                         )
                                     }
@@ -49,7 +53,7 @@ pipeline {
                                             // runDeploymentScript('eu', 'staging', params.VER, 'true')
                                             echo 'Starting DEPLOY to Staging EU'
                                         } else {
-                                            // Utils.markStageSkippedForConditional("Staging EU")
+                                            Utils.markStageSkippedForConditional('Deploy EU')
                                             echo 'DEPLOY to Staging EU not performed'
                                         }
                                     }
@@ -62,7 +66,7 @@ pipeline {
                                             // runDeploymentScript('us', 'staging', params.VER, 'true')
                                             echo 'Starting DEPLOY to Staging US'
                                         } else {
-                                            // Utils.markStageSkippedForConditional("Staging US")
+                                            Utils.markStageSkippedForConditional('Deploy US')
                                             echo 'DEPLOY to Staging US not performed'
                                         }
                                     }
@@ -75,7 +79,7 @@ pipeline {
                                             // runDeploymentScript('ap', 'staging', params.VER, 'true')
                                             echo 'Starting DEPLOY to Staging AP'
                                         } else {
-                                            // Utils.markStageSkippedForConditional("Staging AP")
+                                            Utils.markStageSkippedForConditional('Deploy AP')
                                             echo 'DEPLOY to Staging AP not performed'
                                         }
                                     }
