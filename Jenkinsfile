@@ -162,6 +162,12 @@ pipeline {
             }
         }
         stage('Deploy Production') {
+            when {
+                anyOf {
+                    branch 'master'
+                    tag '*.*.*'
+                }
+            }
             stages {
                 stage('Choose partitions') {
                     steps {
